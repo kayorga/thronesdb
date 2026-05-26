@@ -465,7 +465,7 @@
             var num = parseInt(event.which, 10) - 48;
             $('#cardModal input[type=radio][value=' + num + ']').trigger('change');
         });
-        $('#cardModal').on('change', 'input[type=radio]', ui.on_modal_quantity_change);
+        $('#cardModal').on('change', 'input[type=radio], select.qty-select', ui.on_modal_quantity_change);
 
         $('thead').on('click', 'a[data-sort]', ui.on_table_sort_click);
 
