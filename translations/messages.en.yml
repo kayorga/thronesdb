@@ -527,6 +527,7 @@ rarity:
   rare: Rare
   mythic: Mythic
   hidden: Hidden
+  starter: Starter
 
 keyword:
   renown:
