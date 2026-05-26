@@ -526,7 +526,7 @@ rarity:
   uncommon: Uncommon
   rare: Rare
   mythic: Mythic
-  special: Special
+  hidden: Hidden
 
 keyword:
   renown:
