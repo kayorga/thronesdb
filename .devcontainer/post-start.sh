@@ -7,7 +7,7 @@ if php bin/console fos:user:create dev dev@thronesdb.com password123 --no-intera
     php bin/console fos:user:activate dev
 
     echo "Promoting user..."
-    php bin/console fos:user:promote --super 
+    php bin/console fos:user:promote --super dev
 else
     echo "User dev already exists, skipping setup"
 fi
