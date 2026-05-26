@@ -1,16 +1,6 @@
 #!/bin/bash
 set -e
 
-echo "Waiting for MySQL to be ready..."
-for i in {1..30}; do
-  if mysqladmin ping -h db -u app -ppassword &> /dev/null; then
-    echo "MySQL is ready!"
-    break
-  fi
-  echo "Waiting... attempt $i/30"
-  sleep 2
-done
-
 echo "Installing PHP dependencies..."
 composer install
 
@@ -21,7 +11,7 @@ echo "Creating database..."
 php bin/console doctrine:database:create --if-not-exists
 
 echo "Running migrations..."
-php bin/console doctrine:migrations:migrate
+php bin/console doctrine:migrations:migrate --no-interaction
 
 echo "Loading fixtures..."
 php bin/console doctrine:fixtures:load --env=dev
@@ -32,13 +22,13 @@ if [ ! -d "/workspace/throneteki-json-data" ]; then
 fi
 
 echo "Importing json data..."
-php bin/console app:import:std /workspace/throneteki-json-data
+php bin/console app:import:std /workspace/throneteki-json-data --no-interaction
 
 echo "Importing restriction lists..."
-php bin/console app:restrictions:import /workspace/throneteki-json-data
+php bin/console app:restrictions:import /workspace/throneteki-json-data --no-interaction
 
 echo "Activating restriction list..."
-php bin/console app:restrictions:activate
+php bin/console app:restrictions:activate --no-interaction
 
 echo "Dumping translations..."
 php bin/console bazinga:js-translation:dump assets/js
