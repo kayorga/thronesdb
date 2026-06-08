@@ -18,7 +18,7 @@ php bin/console doctrine:fixtures:load --env=dev
 
 echo "Cloning json data repository..."
 if [ ! -d "/workspace/throneteki-json-data" ]; then
-  git clone https://github.com/kayorga/throneteki-json-data.git -b draft throneteki-json-data
+  git clone https://github.com/throneteki-playtesting/throneteki-json-data.git -n master throneteki-json-data
 fi
 
 echo "Importing json data..."
